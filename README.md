@@ -22,7 +22,6 @@ Maintaining full copies of forms per company or test variant creates redundancy 
 - 🧩 Modular schema structure (base + overrides)
 - 🎨 Company-specific UI configurations
 - 🧭 Multi-step form support with Chakra UI Stepper
-- 💾 All variants map to the same data shape (DB-ready)
 
 ---
 
@@ -41,7 +40,7 @@ Maintaining full copies of forms per company or test variant creates redundancy 
 
 ```bash
 git clone https://github.com/yazanalmousa/dynamic-form-generator.git
-cd json-form-generator
+cd dynamic-form-generator
 ```
 
 ### 2. Install dependencies
