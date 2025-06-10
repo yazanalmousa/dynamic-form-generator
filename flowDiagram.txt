@@ -1,0 +1,43 @@
+User Flow & Architecture
+========================
+
+[ User lands on Home Page ]
+           │
+           ▼
+[ Chooses Insurance Company ]
+           │
+           ▼
+[ Route: /pages/[companyName]?variant=A|B ]
+           │
+           ▼
+┌─────────────────────────────────┐
+│     Page Component Loads        │
+├─────────────────────────────────┤
+│ • Extract companyName & variant │
+│ • Load company config           │
+│ • Get variant schemas           │
+└─────────────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────┐
+│    Schema Composition           │
+├─────────────────────────────────┤
+│ baseSchema                      │
+│     +                           │
+│ variantOverrides (A or B)       │
+│     =                           │
+│ mergedSchema                    │
+└─────────────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────┐
+│    Form Rendering               │
+├─────────────────────────────────┤
+│ If multiStep → MultiStepForm    │
+│ Else → FormRenderer             │
+│                                 │
+│ Uses: mergedSchema + uiSchema   │
+└─────────────────────────────────┘
+           │
+           ▼
+[ User submits → Same data structure ]
